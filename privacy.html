@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — BlitzTap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0F0F23;
+            --bg-card: #1A1A2E;
+            --cyan: #00D4FF;
+            --white: #FFFFFF;
+            --text: #C8D6E5;
+            --text-muted: #6B7A8D;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(15, 15, 35, 0.8);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.08);
+        }
+        .nav-logo {
+            font-weight: 900;
+            font-size: 22px;
+            letter-spacing: 1px;
+            text-decoration: none;
+            color: var(--white);
+        }
+        .nav-logo span { color: var(--cyan); }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--white); }
+        .content {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+        .page-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin-bottom: 12px;
+        }
+        h1 {
+            font-size: 38px;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        .effective-date {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 48px;
+        }
+        h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--white);
+            margin-top: 40px;
+            margin-bottom: 14px;
+        }
+        p {
+            margin-bottom: 16px;
+            font-size: 15.5px;
+        }
+        a { color: var(--cyan); }
+        .highlight-box {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+        .highlight-box p { margin-bottom: 8px; }
+        .highlight-box p:last-child { margin-bottom: 0; }
+        footer {
+            margin-top: 60px;
+            padding: 32px 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--white); }
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 13px;
+            opacity: 0.6;
+        }
+        @media (max-width: 640px) {
+            h1 { font-size: 30px; }
+            .nav-links { gap: 16px; }
+            .nav-links a { font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">BLITZ<span>TAP</span></a>
+        <ul class="nav-links">
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="eula.html">EULA</a></li>
+            <li><a href="support.html">Support</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="page-label">Legal</div>
+        <h1>Privacy Policy</h1>
+        <p class="effective-date">Effective Date: March 8, 2026</p>
+
+        <p>BlitzTap ("we," "our," or "the app") is a mobile game developed by Ramsey Smith. This privacy policy explains what information is collected when you use BlitzTap and how that information is used.</p>
+
+        <div class="highlight-box">
+            <p><strong>The short version:</strong> BlitzTap does not require an account, does not collect your name or email, and stores your game data (scores, settings) only on your device. Our third party partners (Google AdMob for ads and RevenueCat for purchases) collect limited data as described below.</p>
+        </div>
+
+        <h2>Information We Collect</h2>
+
+        <p><strong>Game data stored on your device:</strong> BlitzTap stores your high scores, coin balance, game statistics, and preferences (sound and haptic settings) locally on your device using AsyncStorage. This data never leaves your device and is not transmitted to any server.</p>
+
+        <p><strong>Purchase information:</strong> If you make an in-app purchase (such as "Remove Ads"), the transaction is processed by Apple through the App Store. We use RevenueCat to verify your purchase status and manage your entitlements. RevenueCat receives an anonymous user identifier and your purchase receipt. RevenueCat does not receive your name, email, or Apple ID.</p>
+
+        <p><strong>Advertising data:</strong> BlitzTap displays ads through Google AdMob. AdMob may collect device identifiers (including the Advertising Identifier or IDFA), ad interaction data (impressions and taps), and general device information (device model, operating system version) to serve and measure advertisements. If you grant permission through Apple's App Tracking Transparency prompt, AdMob may use this data for personalized advertising across apps. If you decline, AdMob will serve non-personalized ads only.</p>
+
+        <p><strong>Diagnostic data:</strong> Our third party SDKs (AdMob and RevenueCat) may collect anonymous crash reports and performance data to help diagnose technical issues and improve service reliability.</p>
+
+        <h2>Information We Do Not Collect</h2>
+
+        <p>BlitzTap does not collect or store your name, email address, phone number, physical address, precise location, photos, contacts, browsing history, or any other personally identifiable information. There are no user accounts, no login, and no registration of any kind.</p>
+
+        <h2>Third Party Services</h2>
+
+        <p><strong>Google AdMob:</strong> Provides advertising within the app. AdMob's privacy policy is available at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+
+        <p><strong>RevenueCat:</strong> Manages in-app purchase verification and entitlements. RevenueCat's privacy policy is available at <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a>.</p>
+
+        <p>These third party services may collect data as described in their respective privacy policies. We encourage you to review them.</p>
+
+        <h2>App Tracking Transparency</h2>
+
+        <p>On iOS 14.5 and later, BlitzTap will request your permission before allowing AdMob to track your activity across other companies' apps and websites for advertising purposes. You can change this permission at any time in your device Settings under Privacy &amp; Security, then Tracking.</p>
+
+        <h2>Children's Privacy</h2>
+
+        <p>BlitzTap is rated 4+ and does not knowingly collect personal information from children. Since the app does not require accounts or collect personal data directly, there is no age-gated data collection. Ads shown to users are configured with a maximum content rating of G (General audiences).</p>
+
+        <h2>Data Retention and Deletion</h2>
+
+        <p>All game data (scores, coins, settings) is stored locally on your device and can be deleted at any time by uninstalling the app. We do not maintain any server-side database of user information.</p>
+
+        <p>To reset data collected by AdMob, you can reset your Advertising Identifier in your device Settings under Privacy &amp; Security, then Apple Advertising. To manage data held by RevenueCat related to your purchases, contact us and we will submit a deletion request on your behalf.</p>
+
+        <h2>Changes to This Policy</h2>
+
+        <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated effective date. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+
+        <h2>Contact Us</h2>
+
+        <p>If you have questions about this privacy policy or your data, contact us at <a href="mailto:smith.s.ramsey@gmail.com">smith.s.ramsey@gmail.com</a>.</p>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="eula.html">Terms of Use</a>
+            <a href="support.html">Support</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 BlitzTap. All rights reserved.</p>
+    </footer>
+</body>
+</html>

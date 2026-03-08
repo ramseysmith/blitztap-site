@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — BlitzTap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0F0F23;
+            --bg-card: #1A1A2E;
+            --bg-card-hover: #222240;
+            --cyan: #00D4FF;
+            --cyan-dim: rgba(0, 212, 255, 0.1);
+            --white: #FFFFFF;
+            --text: #C8D6E5;
+            --text-muted: #6B7A8D;
+            --green: #44DD44;
+            --yellow: #FFDD44;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(15, 15, 35, 0.8);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.08);
+        }
+        .nav-logo {
+            font-weight: 900;
+            font-size: 22px;
+            letter-spacing: 1px;
+            text-decoration: none;
+            color: var(--white);
+        }
+        .nav-logo span { color: var(--cyan); }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--white); }
+        .content {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+        }
+        .page-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin-bottom: 12px;
+        }
+        h1 {
+            font-size: 38px;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        .page-subtitle {
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-bottom: 48px;
+        }
+        h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--white);
+            margin-top: 48px;
+            margin-bottom: 18px;
+        }
+        p {
+            margin-bottom: 16px;
+            font-size: 15.5px;
+        }
+        a { color: var(--cyan); }
+
+        /* Contact card */
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 212, 255, 0.12);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .contact-card .email-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+        .contact-card h3 {
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .contact-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .contact-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--cyan);
+            color: var(--bg);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            border: none;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.2);
+        }
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.35);
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 20px 24px;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+        .faq-question:hover { background: var(--bg-card-hover); }
+        .faq-arrow {
+            font-size: 18px;
+            color: var(--text-muted);
+            transition: transform 0.3s;
+        }
+        .faq-item.open .faq-arrow { transform: rotate(180deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding: 0 24px 20px;
+        }
+        .faq-answer p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        /* Tips */
+        .tip-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 12px;
+        }
+        .tip-card h4 {
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .tip-card p {
+            color: var(--text-muted);
+            font-size: 14.5px;
+            margin-bottom: 0;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 32px 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--white); }
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 13px;
+            opacity: 0.6;
+        }
+        @media (max-width: 640px) {
+            h1 { font-size: 30px; }
+            .nav-links { gap: 16px; }
+            .nav-links a { font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">BLITZ<span>TAP</span></a>
+        <ul class="nav-links">
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="eula.html">EULA</a></li>
+            <li><a href="support.html">Support</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="page-label">Help Center</div>
+        <h1>Support</h1>
+        <p class="page-subtitle">Got a question or found a bug? We're here to help.</p>
+
+        <div class="contact-card">
+            <div class="email-icon">&#9993;</div>
+            <h3>Email Support</h3>
+            <p>We typically respond within 24 hours.</p>
+            <a href="mailto:smith.s.ramsey@gmail.com?subject=BlitzTap%20Support" class="contact-btn">smith.s.ramsey@gmail.com</a>
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                How do I remove ads?
+                <span class="faq-arrow">&#9662;</span>
+            </button>
+            <div class="faq-answer">
+                <p>Tap the "Remove Ads" button on the home screen or game over screen. This is a one time purchase that permanently removes interstitial and banner ads. Rewarded video ads (the optional "Watch to Continue" feature) remain available since they benefit you directly.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                I purchased Remove Ads but still see ads. What do I do?
+                <span class="faq-arrow">&#9662;</span>
+            </button>
+            <div class="faq-answer">
+                <p>Go to Settings within the app and tap "Restore Purchases." This will re-verify your purchase with Apple. If that doesn't work, try closing and reopening the app. If the issue persists, email us with your approximate purchase date and we'll help resolve it.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                How do I request a refund for my purchase?
+                <span class="faq-arrow">&#9662;</span>
+            </button>
+            <div class="faq-answer">
+                <p>All purchases are processed by Apple. To request a refund, visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>, sign in with your Apple ID, find the BlitzTap purchase, and select "Request a Refund."</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                The app crashes or freezes. How do I fix it?
+                <span class="faq-arrow">&#9662;</span>
+            </button>
+            <div class="faq-answer">
+                <p>First, make sure you're running the latest version of BlitzTap from the App Store. If the issue continues, try closing the app completely and reopening it. As a last resort, uninstalling and reinstalling will reset all local data (your high score will be lost). If the problem persists, email us with your device model and iOS version.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                Can I play offline?
+                <span class="faq-arrow">&#9662;</span>
+            </button>
+            <div class="faq-answer">
+                <p>Yes! BlitzTap is fully playable without an internet connection. Ads will not display while offline, and purchases may not sync until you reconnect, but gameplay is unaffected.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                How do I turn off sound or haptics?
+                <span class="faq-arrow">&#9662;</span>
+            </button>
+            <div class="faq-answer">
+                <p>Open the Settings screen from the home page (gear icon). You can independently toggle sound effects and haptic feedback on or off. BlitzTap also respects your device's silent switch.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                How does the scoring work?
+                <span class="faq-arrow">&#9662;</span>
+            </button>
+            <div class="faq-answer">
+                <p>Each correct tap earns 1 base point. Consecutive correct taps build a streak: 5 in a row gives 2x, 10 gives 3x, and 20 gives a legendary 5x multiplier. One wrong tap or timeout resets the streak. Your final score is the sum of all multiplied points.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                What data does BlitzTap collect?
+                <span class="faq-arrow">&#9662;</span>
+            </button>
+            <div class="faq-answer">
+                <p>BlitzTap does not collect your name, email, or any personal information. Game data (scores, settings) is stored only on your device. Our ad and purchase partners (Google AdMob and RevenueCat) collect limited anonymous data as described in our <a href="privacy.html">Privacy Policy</a>.</p>
+            </div>
+        </div>
+
+        <h2>Gameplay Tips</h2>
+
+        <div class="tip-card">
+            <h4>&#127919; Focus on the target first</h4>
+            <p>Before scanning the grid, lock your eyes on the target shape and color. Knowing exactly what you're looking for makes scanning the grid twice as fast.</p>
+        </div>
+
+        <div class="tip-card">
+            <h4>&#128293; Protect your streak</h4>
+            <p>A wrong tap at a 15 streak is devastating. If you're not 100% sure, take an extra half second to confirm. The multiplier gains from a long streak far outweigh the risk of a timeout.</p>
+        </div>
+
+        <div class="tip-card">
+            <h4>&#9889; Watch for near-miss distractors</h4>
+            <p>In Tiers 3 and 4, the grid is full of shapes that share EITHER the right color or the right shape, but not both. Train yourself to verify both attributes before tapping.</p>
+        </div>
+
+        <div class="tip-card">
+            <h4>&#127942; Use the Continue wisely</h4>
+            <p>The rewarded video continue is most valuable when you're close to a tier boundary or deep into a streak. Don't waste it on a score of 5. Save it for when it really counts.</p>
+        </div>
+
+        <h2>Report a Bug</h2>
+
+        <p>Found something broken? Email us at <a href="mailto:smith.s.ramsey@gmail.com?subject=BlitzTap%20Bug%20Report">smith.s.ramsey@gmail.com</a> with the following details and we'll fix it as quickly as possible:</p>
+
+        <div class="tip-card">
+            <h4>Please include:</h4>
+            <p>Your device model (e.g., iPhone 15 Pro), your iOS version (e.g., iOS 18.3), what you were doing when the issue occurred, and whether the issue is repeatable. Screenshots or screen recordings are extremely helpful.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="eula.html">Terms of Use</a>
+            <a href="support.html">Support</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 BlitzTap. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+            if (!isOpen) item.classList.add('open');
+        }
+    </script>
+</body>
+</html>
